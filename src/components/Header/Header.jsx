@@ -1,13 +1,25 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import './Header.css'
 
 const Header = ({ isScrolled }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const menuRef = useRef(null)
+  const toggleButtonRef = useRef(null)
+  const firstMenuItemRef = useRef(null)
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId)
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      // Get actual header height dynamically
+      const header = document.querySelector('.header')
+      const headerHeight = header ? header.offsetHeight : 85
+      const elementPosition = element.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.pageYOffset - headerHeight
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      })
       setIsMobileMenuOpen(false)
     }
   }
@@ -15,9 +27,31 @@ const Header = ({ isScrolled }) => {
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden'
+      // Focus first menu item when menu opens
+      setTimeout(() => {
+        if (firstMenuItemRef.current) {
+          firstMenuItemRef.current.focus()
+        }
+      }, 100)
     } else {
       document.body.style.overflow = 'unset'
+      // Return focus to toggle button when menu closes
+      if (toggleButtonRef.current) {
+        toggleButtonRef.current.focus()
+      }
     }
+  }, [isMobileMenuOpen])
+
+  // Handle ESC key to close menu
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape' && isMobileMenuOpen) {
+        setIsMobileMenuOpen(false)
+      }
+    }
+
+    document.addEventListener('keydown', handleEscape)
+    return () => document.removeEventListener('keydown', handleEscape)
   }, [isMobileMenuOpen])
 
   return (
@@ -30,19 +64,74 @@ const Header = ({ isScrolled }) => {
             </a>
           </div>
           
-          <ul className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`} role="navigation">
-            <li><a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection('about') }}>About</a></li>
-            <li><a href="#experience" onClick={(e) => { e.preventDefault(); scrollToSection('experience') }}>Experience</a></li>
-            <li><a href="#education" onClick={(e) => { e.preventDefault(); scrollToSection('education') }}>Education</a></li>
-            <li><a href="#projects" onClick={(e) => { e.preventDefault(); scrollToSection('projects') }}>Projects</a></li>
-            <li><a href="#skills" onClick={(e) => { e.preventDefault(); scrollToSection('skills') }}>Skills</a></li>
-            <li><a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact') }}>Contact</a></li>
+          <ul 
+            ref={menuRef}
+            className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`} 
+            role="navigation"
+            aria-hidden={!isMobileMenuOpen}
+          >
+            <li>
+              <a 
+                ref={firstMenuItemRef}
+                href="#about" 
+                onClick={(e) => { e.preventDefault(); scrollToSection('about') }}
+                tabIndex={isMobileMenuOpen ? 0 : -1}
+              >
+                About
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#experience" 
+                onClick={(e) => { e.preventDefault(); scrollToSection('experience') }}
+                tabIndex={isMobileMenuOpen ? 0 : -1}
+              >
+                Experience
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#education" 
+                onClick={(e) => { e.preventDefault(); scrollToSection('education') }}
+                tabIndex={isMobileMenuOpen ? 0 : -1}
+              >
+                Education
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#projects" 
+                onClick={(e) => { e.preventDefault(); scrollToSection('projects') }}
+                tabIndex={isMobileMenuOpen ? 0 : -1}
+              >
+                Projects
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#skills" 
+                onClick={(e) => { e.preventDefault(); scrollToSection('skills') }}
+                tabIndex={isMobileMenuOpen ? 0 : -1}
+              >
+                Skills
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#contact" 
+                onClick={(e) => { e.preventDefault(); scrollToSection('contact') }}
+                tabIndex={isMobileMenuOpen ? 0 : -1}
+              >
+                Contact
+              </a>
+            </li>
             <li>
               <a 
                 href="/resume/Yash_Jain_Resume.pdf" 
                 download="Yash_Jain_Resume.pdf"
                 className="nav-resume-btn"
                 aria-label="Download Resume"
+                tabIndex={isMobileMenuOpen ? 0 : -1}
               >
                 Resume
               </a>
@@ -50,9 +139,11 @@ const Header = ({ isScrolled }) => {
           </ul>
 
           <button 
+            ref={toggleButtonRef}
             className={`nav-toggle ${isMobileMenuOpen ? 'active' : ''}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
+            aria-expanded={isMobileMenuOpen}
           >
             <span></span>
             <span></span>

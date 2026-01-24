@@ -1,8 +1,16 @@
 import './Skills.css'
+import { useIntersectionObserver } from '../../hooks/useIntersectionObserver'
 
 const Skills = () => {
+  const [ref, isVisible] = useIntersectionObserver()
+
   return (
-    <section id="skills" className="skills section" aria-labelledby="skills-title">
+    <section 
+      ref={ref}
+      id="skills" 
+      className={`skills section fade-in-up ${isVisible ? 'visible' : ''}`}
+      aria-labelledby="skills-title"
+    >
       <div className="container">
         <h2 id="skills-title" className="section-title">How I Work</h2>
         <p className="section-subtitle">

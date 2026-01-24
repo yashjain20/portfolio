@@ -38,7 +38,11 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px;
+  scroll-padding-top: 100px; /* Match About section padding */
+}
+
+section {
+  scroll-margin-top: 100px; /* Match About section padding */
 }
 
 .scroll-progress {
@@ -204,6 +208,21 @@ code {
   50% { transform: translateY(-10px); }
 }
 
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .animate-fade-in {
   animation: fadeIn 0.6s ease-out forwards;
 }
@@ -331,7 +350,32 @@ a:focus-visible {
   background: var(--text-muted);
 }
 
+.component-loader {
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.component-loader-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border-color);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
 @media (max-width: 768px) {
+  html {
+    scroll-padding-top: 100px; /* Match About section padding */
+  }
+
+  section {
+    scroll-margin-top: 100px; /* Match About section padding */
+  }
+
   .section {
     padding: 70px 0;
   }
@@ -347,5 +391,50 @@ a:focus-visible {
 
   .container {
     padding: 0 20px;
+  }
+}
+
+/* Very small screens (320px - 480px) */
+@media (max-width: 480px) {
+  html {
+    scroll-padding-top: 100px; /* Match About section padding */
+  }
+
+  section {
+    scroll-margin-top: 100px; /* Match About section padding */
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .section {
+    padding: 50px 0;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    margin: 1rem auto 2rem;
+  }
+
+  .btn {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+    min-height: 44px;
+  }
+
+  /* Prevent text overflow on very small screens */
+  h1, h2, h3, h4, h5, h6 {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  p, li, span {
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 }

@@ -142,3 +142,13 @@
     font-size: 0.8rem;
   }
 }
+
+@media (max-width: 480px) {
+  .skills-categories {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-section {
+    padding: 1.25rem;
+  }
+}

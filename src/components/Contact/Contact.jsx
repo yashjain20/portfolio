@@ -1,6 +1,9 @@
 import './Contact.css'
+import { useIntersectionObserver } from '../../hooks/useIntersectionObserver'
 
 const Contact = () => {
+  const [ref, isVisible] = useIntersectionObserver()
+  
   const socialLinks = [
     {
       name: 'LinkedIn',
@@ -23,7 +26,12 @@ const Contact = () => {
   ]
 
   return (
-    <section id="contact" className="contact section" aria-labelledby="contact-title">
+    <section 
+      ref={ref}
+      id="contact" 
+      className={`contact section fade-in-up ${isVisible ? 'visible' : ''}`}
+      aria-labelledby="contact-title"
+    >
       <div className="container">
         <h2 id="contact-title" className="section-title">Let's Talk</h2>
         <div className="contact-content">

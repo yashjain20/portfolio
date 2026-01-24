@@ -229,3 +229,25 @@
     margin-bottom: 1.5rem;
   }
 }
+
+@media (max-width: 480px) {
+  .contact-main-card {
+    padding: 1.25rem;
+  }
+
+  .contact-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .contact-details-title {
+    font-size: 1.25rem;
+  }
+
+  .roles-title {
+    font-size: 1rem;
+  }
+
+  .roles-items li {
+    font-size: 0.9rem;
+  }
+}

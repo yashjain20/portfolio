@@ -1,10 +1,23 @@
+import { useState } from 'react'
 import './About.css'
 
 const About = () => {
+  const [imageError, setImageError] = useState(false)
+  const [imageLoading, setImageLoading] = useState(true)
+
   const handleScrollTo = (sectionId) => {
     const element = document.getElementById(sectionId)
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      // Get actual header height dynamically
+      const header = document.querySelector('.header')
+      const headerHeight = header ? header.offsetHeight : 85
+      const elementPosition = element.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.pageYOffset - headerHeight
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      })
     }
   }
 
@@ -48,45 +61,84 @@ const About = () => {
           </div>
           <div className="about-image">
             <div className="image-container">
-              <img 
-                src="/images/profile.jpg" 
-                alt="Yash Jain" 
-                className="profile-image"
-                loading="lazy"
-                width="320"
-                height="320"
-                onError={(e) => {
-                  e.target.style.display = 'none'
-                }}
-              />
+              {!imageError ? (
+                <>
+                  {imageLoading && (
+                    <div className="image-loading">
+                      <div className="image-spinner"></div>
+                    </div>
+                  )}
+                  <picture>
+                    <source srcSet="/images/profile.webp" type="image/webp" />
+                    <img 
+                      src="/images/profile.webp" 
+                      alt="Yash Jain" 
+                      className="profile-image"
+                      loading="lazy"
+                      width="320"
+                      height="320"
+                      onLoad={() => setImageLoading(false)}
+                      onError={() => {
+                        setImageError(true)
+                        setImageLoading(false)
+                      }}
+                      style={{ display: imageLoading ? 'none' : 'block' }}
+                    />
+                  </picture>
+                </>
+              ) : (
+                <div className="profile-image-placeholder">
+                  <span className="placeholder-text">YJ</span>
+                </div>
+              )}
             </div>
           </div>
         </div>
 
+        <div className="about-divider"></div>
+
         <div className="about-main-content">
           <h2 className="about-section-heading">Where technology meets strategy</h2>
-          <p className="about-paragraph">
-            I work at the intersection of building and solving. My technical foundation is in software engineering: backend systems, 
-            data pipelines, machine learning. But my graduate work in Information Systems has trained me to think beyond just implementation.
-          </p>
-          <p className="about-paragraph">
-            The questions I ask are: How does this system support a business goal? What decisions does this data enable? Who needs to 
-            understand this, and in what format?
-          </p>
-          <p className="about-paragraph">
-            I've built production systems that process millions of records daily, designed dashboards that changed how product teams 
-            prioritize features, and automated workflows that eliminated manual processes. I've worked with engineers who think in 
-            system architecture and stakeholders who think in quarterly revenue, and I've learned to speak both languages fluently.
-          </p>
-          <p className="about-paragraph">
-            What excites me isn't just technical elegance. It's leverage. Building solutions that create outsized impact. Systems that 
-            don't just work, but enable faster, smarter decisions. Data that doesn't just exist in dashboards, but changes how 
-            organizations operate.
-          </p>
-          <p className="about-paragraph">
-            I'm exploring full-time opportunities starting mid-2026 where I can apply both technical depth and strategic thinking. I'm interested in 
-            roles in software engineering, data and analytics engineering, AI/ML, or business-facing technical consulting.
-          </p>
+          
+          <div className="about-content-grid">
+            <div className="about-content-section">
+              <h3 className="about-subheading">My Approach</h3>
+              <p className="about-paragraph">
+                I work at the intersection of building and solving. My technical foundation is in software engineering: backend systems, 
+                data pipelines, machine learning. But my graduate work in Information Systems has trained me to think beyond just implementation.
+              </p>
+              <p className="about-paragraph">
+                The questions I ask are: How does this system support a business goal? What decisions does this data enable? Who needs to 
+                understand this, and in what format?
+              </p>
+            </div>
+
+            <div className="about-content-section">
+              <h3 className="about-subheading">What I've Built</h3>
+              <p className="about-paragraph">
+                I've built production systems that process millions of records daily, designed dashboards that changed how product teams 
+                prioritize features, and automated workflows that eliminated manual processes. I've worked with engineers who think in 
+                system architecture and stakeholders who think in quarterly revenue, and I've learned to speak both languages fluently.
+              </p>
+            </div>
+
+            <div className="about-content-section">
+              <h3 className="about-subheading">What Drives Me</h3>
+              <p className="about-paragraph">
+                What excites me isn't just technical elegance. It's leverage. Building solutions that create outsized impact. Systems that 
+                don't just work, but enable faster, smarter decisions. Data that doesn't just exist in dashboards, but changes how 
+                organizations operate.
+              </p>
+            </div>
+
+            <div className="about-content-section">
+              <h3 className="about-subheading">What's Next</h3>
+              <p className="about-paragraph">
+                I'm exploring full-time opportunities starting mid-2026 where I can apply both technical depth and strategic thinking. I'm interested in 
+                roles in software engineering, data and analytics engineering, AI/ML, or business-facing technical consulting.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

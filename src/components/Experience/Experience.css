@@ -236,3 +236,29 @@
     flex-direction: column;
   }
 }
+
+@media (max-width: 480px) {
+  .experience-item {
+    padding: 1.25rem 1rem;
+  }
+
+  .experience-title {
+    font-size: 1.125rem;
+  }
+
+  .experience-company {
+    font-size: 1rem;
+  }
+
+  .experience-section-title {
+    font-size: 1rem;
+  }
+
+  .experience-section-text {
+    font-size: 0.95rem;
+  }
+
+  .experience-list-items li {
+    font-size: 0.95rem;
+  }
+}

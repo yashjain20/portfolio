@@ -5,13 +5,27 @@ const Footer = () => {
   const [showBackToTop, setShowBackToTop] = useState(false)
 
   useEffect(() => {
+    let ticking = false
+
     const handleScroll = () => {
-      setShowBackToTop(window.scrollY > 300)
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const shouldShow = window.scrollY > 300
+          
+          // Only update if state actually changed
+          if (shouldShow !== showBackToTop) {
+            setShowBackToTop(shouldShow)
+          }
+          
+          ticking = false
+        })
+        ticking = true
+      }
     }
 
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [showBackToTop])
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -20,7 +34,16 @@ const Footer = () => {
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId)
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      // Get actual header height dynamically
+      const header = document.querySelector('.header')
+      const headerHeight = header ? header.offsetHeight : 85
+      const elementPosition = element.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.pageYOffset - headerHeight
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      })
     }
   }
 
@@ -37,7 +60,7 @@ const Footer = () => {
         </div>
       </div>
       {showBackToTop && (
-        <button className="back-to-top" onClick={scrollToTop} aria-label="Back to top">
+        <button className="back-to-top visible" onClick={scrollToTop} aria-label="Back to top">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <polyline points="18 15 12 9 6 15"></polyline>
           </svg>
