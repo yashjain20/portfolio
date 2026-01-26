@@ -1,9 +1,33 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import './About.css'
 
 const About = () => {
   const [imageError, setImageError] = useState(false)
   const [imageLoading, setImageLoading] = useState(true)
+  const imgRef = useRef(null)
+
+  // Safari fix: Check if image is already loaded (cached/preloaded)
+  useEffect(() => {
+    const img = imgRef.current
+    if (img) {
+      // Check if image is already complete (Safari cached image fix)
+      if (img.complete && img.naturalHeight !== 0) {
+        // Image is already loaded, onLoad won't fire
+        setImageLoading(false)
+      }
+    }
+  }, [])
+
+  // Timeout fallback for Safari (in case onLoad never fires)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (imageLoading) {
+        setImageLoading(false)
+      }
+    }, 2000) // Show image after 2 seconds even if onLoad doesn't fire
+
+    return () => clearTimeout(timer)
+  }, [imageLoading])
 
   const handleScrollTo = (sectionId) => {
     const element = document.getElementById(sectionId)
@@ -71,10 +95,11 @@ const About = () => {
                   <picture>
                     <source srcSet="/images/profile.webp" type="image/webp" />
                     <img 
+                      ref={imgRef}
                       src="/images/profile.webp" 
                       alt="Yash Jain" 
                       className="profile-image"
-                      loading="lazy"
+                      loading="eager"
                       width="320"
                       height="320"
                       onLoad={() => setImageLoading(false)}
