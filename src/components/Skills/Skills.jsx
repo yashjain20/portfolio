@@ -1,6 +1,55 @@
 import './Skills.css'
 import { useIntersectionObserver } from '../../hooks/useIntersectionObserver'
 
+// Skill category icons
+const CategoryIcon = ({ category }) => {
+  const icons = {
+    'Languages': (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="16 18 22 12 16 6"></polyline>
+        <polyline points="8 6 2 12 8 18"></polyline>
+      </svg>
+    ),
+    'Engineering': (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="3"></circle>
+        <path d="M12 1v6m0 6v6M5.64 5.64l4.24 4.24m4.24 4.24l4.24 4.24M1 12h6m6 0h6M5.64 18.36l4.24-4.24m4.24-4.24l4.24-4.24"></path>
+      </svg>
+    ),
+    'Cloud & Data': (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+      </svg>
+    ),
+    'AI/ML': (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="5" r="2"></circle>
+        <circle cx="19" cy="12" r="2"></circle>
+        <circle cx="5" cy="12" r="2"></circle>
+        <circle cx="12" cy="19" r="2"></circle>
+        <line x1="12" y1="7" x2="12" y2="17"></line>
+        <line x1="7" y1="12" x2="17" y2="12"></line>
+        <line x1="8.24" y1="8.24" x2="15.76" y2="15.76"></line>
+        <line x1="8.24" y1="15.76" x2="15.76" y2="8.24"></line>
+      </svg>
+    ),
+    'Analytics': (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+      </svg>
+    ),
+    'DevOps': (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"></path>
+      </svg>
+    )
+  }
+  
+  return icons[category] || null
+}
+
 const Skills = () => {
   const [ref, isVisible] = useIntersectionObserver()
 
@@ -28,7 +77,10 @@ const Skills = () => {
               <h3 className="skills-section-title">Technical Capabilities</h3>
               <div className="skills-categories">
                 <div className="skill-category">
-                  <h4 className="category-label">Languages</h4>
+                  <h4 className="category-label">
+                    <CategoryIcon category="Languages" />
+                    Languages
+                  </h4>
                   <div className="skills-list">
                     <span className="skill-item">Python</span>
                     <span className="skill-item">Java</span>
@@ -37,7 +89,10 @@ const Skills = () => {
                   </div>
                 </div>
                 <div className="skill-category">
-                  <h4 className="category-label">Engineering</h4>
+                  <h4 className="category-label">
+                    <CategoryIcon category="Engineering" />
+                    Engineering
+                  </h4>
                   <div className="skills-list">
                     <span className="skill-item">Spring Boot</span>
                     <span className="skill-item">REST APIs</span>
@@ -46,7 +101,10 @@ const Skills = () => {
                   </div>
                 </div>
                 <div className="skill-category">
-                  <h4 className="category-label">Cloud & Data</h4>
+                  <h4 className="category-label">
+                    <CategoryIcon category="Cloud & Data" />
+                    Cloud & Data
+                  </h4>
                   <div className="skills-list">
                     <span className="skill-item">AWS (S3, Lambda, Glue, Redshift)</span>
                     <span className="skill-item">Azure</span>
@@ -55,7 +113,10 @@ const Skills = () => {
                   </div>
                 </div>
                 <div className="skill-category">
-                  <h4 className="category-label">AI/ML</h4>
+                  <h4 className="category-label">
+                    <CategoryIcon category="AI/ML" />
+                    AI/ML
+                  </h4>
                   <div className="skills-list">
                     <span className="skill-item">PyTorch</span>
                     <span className="skill-item">Scikit-learn</span>
@@ -65,7 +126,10 @@ const Skills = () => {
                   </div>
                 </div>
                 <div className="skill-category">
-                  <h4 className="category-label">Analytics</h4>
+                  <h4 className="category-label">
+                    <CategoryIcon category="Analytics" />
+                    Analytics
+                  </h4>
                   <div className="skills-list">
                     <span className="skill-item">Power BI</span>
                     <span className="skill-item">Tableau</span>
@@ -74,7 +138,10 @@ const Skills = () => {
                   </div>
                 </div>
                 <div className="skill-category">
-                  <h4 className="category-label">DevOps</h4>
+                  <h4 className="category-label">
+                    <CategoryIcon category="DevOps" />
+                    DevOps
+                  </h4>
                   <div className="skills-list">
                     <span className="skill-item">Docker</span>
                     <span className="skill-item">Git</span>

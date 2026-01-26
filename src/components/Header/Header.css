@@ -90,6 +90,15 @@
   transform-origin: left;
 }
 
+.nav-menu a.active {
+  color: var(--text-color);
+}
+
+.nav-menu a.active::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
 .nav-resume-btn {
   background: var(--gradient-primary);
   color: white !important;

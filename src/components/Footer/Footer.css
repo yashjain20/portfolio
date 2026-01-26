@@ -62,6 +62,17 @@
   width: 100%;
 }
 
+.footer-links a:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.back-to-top:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 3px;
+}
+
 .back-to-top {
   position: fixed;
   bottom: 2rem;

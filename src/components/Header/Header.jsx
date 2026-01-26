@@ -1,8 +1,10 @@
 import { useState, useEffect, useRef } from 'react'
+import { useActiveSection } from '../../hooks/useActiveSection'
 import './Header.css'
 
 const Header = ({ isScrolled }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const activeSection = useActiveSection()
   const menuRef = useRef(null)
   const toggleButtonRef = useRef(null)
   const firstMenuItemRef = useRef(null)
@@ -75,6 +77,7 @@ const Header = ({ isScrolled }) => {
                 ref={firstMenuItemRef}
                 href="#about" 
                 onClick={(e) => { e.preventDefault(); scrollToSection('about') }}
+                className={activeSection === 'about' ? 'active' : ''}
                 tabIndex={isMobileMenuOpen ? 0 : -1}
               >
                 About
@@ -84,6 +87,7 @@ const Header = ({ isScrolled }) => {
               <a 
                 href="#experience" 
                 onClick={(e) => { e.preventDefault(); scrollToSection('experience') }}
+                className={activeSection === 'experience' ? 'active' : ''}
                 tabIndex={isMobileMenuOpen ? 0 : -1}
               >
                 Experience
@@ -93,6 +97,7 @@ const Header = ({ isScrolled }) => {
               <a 
                 href="#education" 
                 onClick={(e) => { e.preventDefault(); scrollToSection('education') }}
+                className={activeSection === 'education' ? 'active' : ''}
                 tabIndex={isMobileMenuOpen ? 0 : -1}
               >
                 Education
@@ -102,6 +107,7 @@ const Header = ({ isScrolled }) => {
               <a 
                 href="#projects" 
                 onClick={(e) => { e.preventDefault(); scrollToSection('projects') }}
+                className={activeSection === 'projects' ? 'active' : ''}
                 tabIndex={isMobileMenuOpen ? 0 : -1}
               >
                 Projects
@@ -111,6 +117,7 @@ const Header = ({ isScrolled }) => {
               <a 
                 href="#skills" 
                 onClick={(e) => { e.preventDefault(); scrollToSection('skills') }}
+                className={activeSection === 'skills' ? 'active' : ''}
                 tabIndex={isMobileMenuOpen ? 0 : -1}
               >
                 Skills
@@ -120,6 +127,7 @@ const Header = ({ isScrolled }) => {
               <a 
                 href="#contact" 
                 onClick={(e) => { e.preventDefault(); scrollToSection('contact') }}
+                className={activeSection === 'contact' ? 'active' : ''}
                 tabIndex={isMobileMenuOpen ? 0 : -1}
               >
                 Contact

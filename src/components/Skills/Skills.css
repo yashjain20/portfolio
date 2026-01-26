@@ -58,13 +58,21 @@
 
 .category-label {
   font-family: var(--font-heading);
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: 600;
   color: var(--primary-color);
   margin: 0;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.category-label svg {
+  flex-shrink: 0;
+  color: var(--primary-color);
+  opacity: 0.8;
 }
 
 .skills-list {
