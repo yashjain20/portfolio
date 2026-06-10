@@ -63,13 +63,14 @@ const Skills = () => {
       <div className="container">
         <h2 id="skills-title" className="section-title">How I Work</h2>
         <p className="section-subtitle">
-          I move between technical execution and strategic thinking.
+          From raw ingestion to analytics-ready data.
         </p>
 
         <div className="how-i-work-content">
           <p className="skills-intro">
-            I can architect data systems, write production code, train ML models, and deploy to AWS. But I'm equally focused on the why. 
-            Does this solve the right problem? How does this create value? What trade-offs are we making?
+            I work across the whole pipeline, from pulling in raw data to shaping it into something
+            people can actually query. Most of my attention goes to data quality and schema design,
+            because if those aren't right, everything built on top of them suffers.
           </p>
 
           <div className="skills-sections">
@@ -83,69 +84,69 @@ const Skills = () => {
                   </h4>
                   <div className="skills-list">
                     <span className="skill-item">Python</span>
-                    <span className="skill-item">Java</span>
                     <span className="skill-item">SQL</span>
+                    <span className="skill-item">Java</span>
                     <span className="skill-item">JavaScript</span>
                   </div>
                 </div>
                 <div className="skill-category">
                   <h4 className="category-label">
                     <CategoryIcon category="Engineering" />
-                    Engineering
+                    Data Engineering
                   </h4>
                   <div className="skills-list">
-                    <span className="skill-item">Spring Boot</span>
-                    <span className="skill-item">REST APIs</span>
-                    <span className="skill-item">Microservices</span>
-                    <span className="skill-item">React</span>
+                    <span className="skill-item">ETL/ELT Pipelines</span>
+                    <span className="skill-item">Data Modeling</span>
+                    <span className="skill-item">Schema Design</span>
+                    <span className="skill-item">Data Quality</span>
                   </div>
                 </div>
                 <div className="skill-category">
                   <h4 className="category-label">
                     <CategoryIcon category="Cloud & Data" />
-                    Cloud & Data
+                    Cloud & Platforms
                   </h4>
                   <div className="skills-list">
-                    <span className="skill-item">AWS (S3, Lambda, Glue, Redshift)</span>
+                    <span className="skill-item">AWS (S3, Glue, Redshift)</span>
+                    <span className="skill-item">GCP (BigQuery)</span>
                     <span className="skill-item">Azure</span>
+                    <span className="skill-item">Snowflake</span>
+                  </div>
+                </div>
+                <div className="skill-category">
+                  <h4 className="category-label">
+                    <CategoryIcon category="AI/ML" />
+                    Big Data & Streaming
+                  </h4>
+                  <div className="skills-list">
+                    <span className="skill-item">Apache Spark</span>
+                    <span className="skill-item">Apache Kafka</span>
+                    <span className="skill-item">PySpark</span>
+                    <span className="skill-item">Batch & Streaming</span>
+                  </div>
+                </div>
+                <div className="skill-category">
+                  <h4 className="category-label">
+                    <CategoryIcon category="Analytics" />
+                    Orchestration & Transform
+                  </h4>
+                  <div className="skills-list">
+                    <span className="skill-item">Apache Airflow</span>
+                    <span className="skill-item">dbt</span>
                     <span className="skill-item">PostgreSQL</span>
                     <span className="skill-item">MongoDB</span>
                   </div>
                 </div>
                 <div className="skill-category">
                   <h4 className="category-label">
-                    <CategoryIcon category="AI/ML" />
-                    AI/ML
-                  </h4>
-                  <div className="skills-list">
-                    <span className="skill-item">PyTorch</span>
-                    <span className="skill-item">Scikit-learn</span>
-                    <span className="skill-item">XGBoost</span>
-                    <span className="skill-item">PySpark</span>
-                    <span className="skill-item">LLM integration</span>
-                  </div>
-                </div>
-                <div className="skill-category">
-                  <h4 className="category-label">
-                    <CategoryIcon category="Analytics" />
-                    Analytics
-                  </h4>
-                  <div className="skills-list">
-                    <span className="skill-item">Power BI</span>
-                    <span className="skill-item">Tableau</span>
-                    <span className="skill-item">Pandas</span>
-                    <span className="skill-item">NumPy</span>
-                  </div>
-                </div>
-                <div className="skill-category">
-                  <h4 className="category-label">
                     <CategoryIcon category="DevOps" />
-                    DevOps
+                    DevOps & Infra
                   </h4>
                   <div className="skills-list">
                     <span className="skill-item">Docker</span>
+                    <span className="skill-item">Terraform</span>
                     <span className="skill-item">Git</span>
-                    <span className="skill-item">CI/CD pipelines</span>
+                    <span className="skill-item">CI/CD</span>
                   </div>
                 </div>
               </div>
@@ -154,19 +155,20 @@ const Skills = () => {
             <div className="skills-section">
               <h3 className="skills-section-title">What I Deliver</h3>
               <ul className="deliverables-list">
-                <li>Systems that scale reliably under production load</li>
-                <li>Data pipelines that teams trust for decision-making</li>
-                <li>Models that solve business problems, not just optimize metrics</li>
-                <li>Clear communication bridging technical and non-technical stakeholders</li>
+                <li>Pipelines that keep running when something upstream breaks</li>
+                <li>Clean, consistent datasets that analysts and models can rely on</li>
+                <li>Data models that make reporting fast and predictable</li>
+                <li>Infrastructure that holds up once it's actually in production</li>
               </ul>
             </div>
 
             <div className="skills-section">
               <h3 className="skills-section-title">Work Style</h3>
               <p className="work-style-text">
-                Equally comfortable working independently or embedded in cross-functional teams. I can deep-dive into technical 
-                implementation and zoom out to understand business strategy. I ask questions, challenge assumptions, and focus on 
-                outcomes over activity.
+                I'm happy working on my own or as part of a team. I like getting into the details
+                of an implementation, but I also want to understand what the data is for and who's
+                using it. I ask questions early, write things down, and try to build for the person
+                who has to maintain it later, often me.
               </p>
             </div>
           </div>

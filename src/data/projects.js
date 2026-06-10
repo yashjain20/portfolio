@@ -1,37 +1,35 @@
 export const projects = [
   {
     id: 'audio-accessible',
-    title: 'Making 10,000 Hours of Audio Accessible',
+    title: 'Digital Audio Archive Processing System',
     subtitle: 'NYU Capstone Project | New York Public Library',
-    logoText: 'AI',
-    challenge: 'The New York Public Library held thousands of hours of historical audio: interviews, lectures, performances. But they were essentially unusable. No transcripts. No search. If you didn\'t know exactly what minute of which recording contained what you needed, you\'d never find it.',
-    role: 'I was the technical lead on a 3-person team. I designed the ML pipeline architecture, integrated Faster-Whisper for transcription and Qwen2 LLM for summarization, and built the data processing workflow.',
+    logoText: 'DE',
+    challenge: 'The New York Public Library held thousands of hours of historical audio recordings with no transcripts, no metadata, and no way to search them. Finding anything meant manually listening through hours of audio, which was not feasible at scale.',
+    role: 'Technical lead on a 3-person team. I designed the pipeline architecture, selected the processing stack, and built the end-to-end workflow from ingestion through storage.',
     whatIBuilt: [
-      'Processes audio files and generates accurate transcriptions',
-      'Uses LLM-based summarization to create searchable content',
-      'Enables keyword search across the entire archive'
+      'Multi-stage ETL pipeline in Python and Apache Spark to ingest and process large-scale digital audio archives',
+      'Apache Airflow orchestration with intermediate staging in MongoDB for audit, recovery, and reproducibility',
+      'Containerized deployment with Docker and infrastructure provisioned through Terraform'
     ],
-    impact: 'Researchers and educators can now discover content in minutes that would have taken hours of manual listening. A historian searching for mentions of a specific event can query the system and get timestamped results instantly.',
-    timeline: '4 months (Sept 2025 – Dec 2025)',
-    technologies: ['Python', 'Faster-Whisper', 'Qwen2 LLM', 'Natural Language Processing'],
-    whatILearned: 'Working with real institutional constraints taught me how to balance technical ambition with practical deliverables. The library needed something that worked reliably, not something that was technically perfect. I learned to prioritize robustness over sophistication and how to communicate technical trade-offs to non-technical stakeholders.'
+    impact: 'Processed 500+ hours of audio with a 5x speedup over the baseline approach and reduced manual effort by 95%. Researchers can now search and discover content in minutes instead of hours.',
+    timeline: '4 months (Sep 2025 to Dec 2025)',
+    technologies: ['Python', 'Apache Spark', 'Apache Airflow', 'MongoDB', 'Docker', 'Terraform'],
+    whatILearned: 'Working with a real institutional partner taught me how to scope technical work around what actually needs to ship. The library needed something reliable and maintainable, not the latest tooling for its own sake. I got better at making architectural trade-offs and explaining them to non-technical stakeholders.'
   },
   {
-    id: 'startup-success-prediction',
-    title: 'Predicting Startup Success: Which Signals Actually Matter?',
+    id: 'startup-analytics-pipeline',
+    title: 'Startup Analytics Data Pipeline',
     subtitle: 'NYU Stern School of Business',
-    logoText: 'ML',
-    challenge: 'Venture investors evaluate hundreds of startups. Which early-stage signals actually predict funding success? Is it team size? Funding velocity? Market timing?',
-    role: 'This was a solo project. I sourced and cleaned Crunchbase records, engineered features, built classification models, and interpreted results for business strategy implications.',
+    logoText: 'DE',
+    challenge: 'Raw Crunchbase data on startup funding outcomes was messy, inconsistent, and not ready for analysis. The goal was to build a pipeline that could reliably prepare this data for downstream analytics and modeling.',
+    role: 'Solo project. I designed the ingestion and transformation workflow, handled data quality, and set up the analytical layer from the ground up.',
     whatIBuilt: [
-      'XGBoost and Random Forest models to predict funding outcomes',
-      'Feature engineering around team composition, capital efficiency, market conditions',
-      'Analysis showing which metrics had predictive power versus noise'
+      'SQL and Python transformation workflows to normalize schemas, handle missing data, and prepare 54,000+ records for analytics, with curated datasets staged in Snowflake',
+      'Event-driven ingestion using Apache Kafka and modular transformations with dbt, enforcing data quality checks and schema consistency for analytical consumers'
     ],
-    impact: 'Key finding: Funding velocity and team composition were stronger predictors than market size. I identified non-obvious patterns that could inform investor screening processes.',
+    impact: 'Produced clean, analytics-ready datasets with consistent schemas and validated quality. The pipeline could be rerun reliably as new data arrived, making the downstream analysis fully reproducible.',
     timeline: '12 weeks',
-    technologies: ['Python', 'XGBoost', 'Random Forest', 'Pandas', 'Scikit-learn', 'Matplotlib'],
-    whatILearned: 'The technical work like model tuning and hyperparameter optimization was only half the challenge. The real value came from translating model outputs into actionable business insights. I learned how to communicate statistical findings to non-technical audiences and frame recommendations in terms of business strategy, not just model performance.',
-    ifIDidThisAgain: 'I\'d incorporate survival analysis to better capture the time-to-funding dimension. I\'d also test ensemble methods combining deep learning with traditional ML to capture more complex interaction effects.'
+    technologies: ['Python', 'SQL', 'Apache Kafka', 'dbt', 'Snowflake', 'Pandas'],
+    whatILearned: 'Building for analytical consumers changed how I think about data contracts and schema design. Enforcing quality upstream is what keeps downstream models and dashboards from inheriting bad data.'
   }
 ]

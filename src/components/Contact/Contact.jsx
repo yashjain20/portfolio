@@ -6,7 +6,7 @@ import { useToast } from '../../context/ToastContext'
 const Contact = () => {
   const [ref, isVisible] = useIntersectionObserver()
   const { showToast } = useToast()
-  const email = 'yj3273@nyu.edu'
+  const email = 'yj3273@stern.nyu.edu'
   
   const socialLinks = [
     {
@@ -45,30 +45,30 @@ const Contact = () => {
             <div className="contact-top-section">
               <h3 className="contact-subtitle">What I'm Looking For</h3>
               <p className="contact-intro">
-                I'm exploring full-time opportunities starting mid-2026 in roles where technology drives business outcomes.
+                I'm looking for full-time data engineering roles where I can build and own the pipelines and infrastructure behind the data.
               </p>
               <div className="roles-grid">
                 <div className="roles-list">
                   <h4 className="roles-title">Roles I'm drawn to:</h4>
                   <ul className="roles-items">
-                    <li>Software and Data Engineering: Building systems that scale and enable analytics</li>
-                    <li>Analytics and ML Engineering: Deploying models and infrastructure in production</li>
-                    <li>Technical Consulting: Solving strategic problems with technology while working cross-functionally</li>
-                    <li>Product-focused technical roles: Where engineering and business strategy intersect</li>
+                    <li>Data Engineering: Building and maintaining production ETL/ELT pipelines</li>
+                    <li>Platform and Infrastructure: Designing the systems that power analytics and ML at scale</li>
+                    <li>Analytics Engineering: Modeling data and building trusted, well-documented datasets</li>
+                    <li>Data Warehousing: Schema design, performance tuning, and reliable batch and streaming workflows</li>
                   </ul>
                 </div>
                 <div className="what-matters">
                   <h4 className="roles-title">What matters to me:</h4>
                   <ul className="roles-items">
-                    <li>Working on problems that create real leverage</li>
-                    <li>Teams that value both technical craft and strategic thinking</li>
-                    <li>Organizations where curiosity is rewarded and learning is continuous</li>
-                    <li>Roles where what you build matters as much as how you build it</li>
+                    <li>Teams that treat data quality and reliability as part of the job, not an afterthought</li>
+                    <li>People who care about clean, maintainable systems</li>
+                    <li>A place where it's normal to ask questions and keep learning</li>
+                    <li>Work where I can take real ownership of what I build</li>
                   </ul>
                 </div>
               </div>
               <p className="contact-cta">
-                If you're working on something interesting where these skills align, I'd love to connect.
+                If you're building something where solid data infrastructure matters, I'd love to connect.
               </p>
             </div>
 

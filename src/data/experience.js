@@ -1,20 +1,19 @@
 export const experiences = [
   {
     id: 'pixis-intern',
-    title: 'Summer Intern',
+    title: 'Data Engineer Intern',
     company: 'Pixis.ai',
     location: 'New York, NY',
     period: 'May 2025 – Aug 2025',
-    problem: 'Analytics workflows were manual, data quality was inconsistent, and teams were making decisions on week-old data.',
+    problem: 'Analytics workflows were largely manual, data quality was inconsistent, and teams were making decisions based on week-old data.',
     whatIDid: [
-      'Built Python/SQL automation to streamline reporting workflows',
-      'Designed AWS infrastructure (S3, Redshift, Lambda) enabling real-time analytics',
-      'Created data validation frameworks ensuring accuracy across systems',
-      'Collaborated with product and growth teams to identify critical metrics'
+      'Architected batch ETL pipelines in Python to ingest lead data from external REST APIs, standardize schemas, and load into Redshift, cutting manual data processing by 75%',
+      'Built dimensional data models and optimized SQL query patterns in Redshift, improving analytical query performance by 40% for marketing analytics workloads',
+      'Implemented an automated data quality framework covering null validation, format checks, deduplication, and anomaly detection, improving data accuracy by 20% and saving 15 hours per week of manual reconciliation'
     ],
-    impact: 'Product teams could test hypotheses faster. Leadership had current data for roadmap decisions. The analytics function shifted from being reactive to proactive.',
-    teamSize: '2-person data engineering team; collaborated with product and growth teams',
-    tools: ['Python', 'SQL', 'AWS (S3, Redshift, Lambda)', 'Airflow']
+    impact: 'Product and growth teams went from working with stale, unreliable data to having fresh, validated data they could act on. Analytics stopped being the bottleneck for decision-making.',
+    teamSize: '2-person data engineering team, collaborating with product and growth',
+    tools: ['Python', 'SQL', 'AWS S3', 'AWS Redshift', 'Apache Airflow', 'dbt']
   },
   {
     id: 'trewinia-engineer',
@@ -22,31 +21,30 @@ export const experiences = [
     company: 'Trewinia Infotech',
     location: 'India',
     period: 'Nov 2022 – Jul 2024',
-    problem: 'A fast-growing startup needed scalable data infrastructure to support business intelligence across sales, marketing, and operations.',
+    problem: 'A growing startup needed reliable data infrastructure to support business intelligence across sales, marketing, and operations.',
     whatIDid: [
-      'ETL pipelines on AWS for large-scale data processing',
-      'Interactive dashboards (Power BI, Tableau) for stakeholders across business units',
-      'Automated data aggregation eliminating manual reporting'
+      'Engineered production ETL pipelines using AWS Glue and Lambda to ingest operational data into PostgreSQL, processing over 1 million records daily with automated retries and error handling',
+      'Designed star schema warehouse tables and tuned SQL queries and indexes, reducing report generation time by 50% for recurring analytical workloads',
+      'Built Python-based transformation workflows to aggregate, clean, and model raw data into analysis-ready tables powering 15+ dashboards in Power BI and Tableau'
     ],
-    impact: 'Teams could identify bottlenecks in real time. Leadership could track performance across departments. The business moved faster because the data was reliable.',
+    impact: 'Teams could spot bottlenecks in real time instead of waiting on weekly reports. Leadership had a consistent, reliable view of performance across departments.',
     teamSize: '4-person data team',
-    tools: ['AWS Lambda', 'AWS Glue', 'PostgreSQL', 'Power BI', 'Tableau', 'Python']
+    tools: ['AWS Glue', 'AWS Lambda', 'PostgreSQL', 'Python', 'SQL', 'Power BI', 'Tableau']
   },
   {
     id: 'tcs-engineer',
-    title: 'System Engineer',
-    company: 'TCS',
+    title: 'Systems Engineer',
+    company: 'Tata Consultancy Services',
     location: 'India',
     period: 'Feb 2021 – Oct 2022',
-    problem: 'We needed to build production backend systems that could reliably serve enterprise clients.',
+    problem: 'Enterprise clients needed production data services that could handle high transaction volumes reliably.',
     whatIDid: [
-      'Developed REST APIs using Java and Spring Boot',
-      'Optimized PostgreSQL queries and indexing strategies',
-      'Implemented caching mechanisms to enhance API performance',
-      'Automated deployment workflows'
+      'Built data processing services in Java and SQL supporting 50,000+ monthly transactions, with efficient data access patterns and consistent service reliability',
+      'Optimized database schemas, SQL queries, and indexing strategies, improving data retrieval performance by 35% for high-traffic application endpoints',
+      'Automated CI/CD pipelines using Git, Jenkins, and Python for build, test, and deployment workflows, reducing release cycle time by 10 hours per week'
     ],
-    impact: 'Systems handled production traffic reliably. Performance improvements reduced infrastructure costs.',
+    impact: 'Systems handled production load without degradation. Query optimizations directly reduced infrastructure costs and shortened response times for end users.',
     teamSize: '8-person engineering team',
-    tools: ['Java', 'Spring Boot', 'PostgreSQL', 'Redis', 'Git', 'Jenkins']
+    tools: ['Java', 'SQL', 'PostgreSQL', 'Git', 'Jenkins', 'Python']
   }
 ]

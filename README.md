@@ -8,7 +8,7 @@ Live at: [jainyash.vercel.app](https://jainyash.vercel.app)
 
 - About section with my background and approach
 - Work experience with impact-focused descriptions
-- Projects I've worked on (NYU capstone, ML projects)
+- Projects I've worked on (NYU capstone, data engineering projects)
 - Skills and how I work
 - Contact info and what I'm looking for
 
@@ -48,6 +48,6 @@ Content is separated into data files (`src/data/`) so it's easy to update withou
 
 ## Contact
 
-Email: yj3273@nyu.edu  
+Email: yj3273@stern.nyu.edu  
 LinkedIn: [linkedin.com/in/jainyash20](https://linkedin.com/in/jainyash20)  
 GitHub: [github.com/yashjain20](https://github.com/yashjain20)

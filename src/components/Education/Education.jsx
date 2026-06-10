@@ -25,7 +25,10 @@ const Education = () => {
                 <span className="education-period">{edu.period}</span>
               </div>
               <h4 className="education-school">{edu.school}</h4>
-              <p className="education-location">{edu.location}</p>
+              <p className="education-location">
+                {edu.location}
+                {edu.gpa && <span className="education-gpa"> · GPA {edu.gpa}</span>}
+              </p>
               <p className="education-description">{edu.description}</p>
               <div className="education-coursework">
                 <h5>Relevant Coursework:</h5>

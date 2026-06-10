@@ -54,11 +54,12 @@ const About = () => {
               <span className="gradient-text">Yash Jain</span>
             </h1>
             <p className="about-tagline">
-              I turn complex business problems into technical solutions and make sure the data tells the story.
+              I turn raw, messy data into pipelines teams can trust.
             </p>
             <p className="about-intro">
-              Pursuing a Master's in Information Systems at NYU. I build scalable systems, analyze data to drive decisions, 
-              and deploy AI/ML solutions that create measurable business impact.
+              I'm a data engineer with a Master's in Information Systems from NYU. I build the
+              pipelines and infrastructure behind analytics, the systems that move data around,
+              clean it up, and get it ready for the people who depend on it.
             </p>
             <div className="about-links">
               <a 
@@ -123,44 +124,46 @@ const About = () => {
         <div className="about-divider"></div>
 
         <div className="about-main-content">
-          <h2 className="about-section-heading">Where technology meets strategy</h2>
+          <h2 className="about-section-heading">How I think about data</h2>
           
           <div className="about-content-grid">
             <div className="about-content-section">
               <h3 className="about-subheading">My Approach</h3>
               <p className="about-paragraph">
-                I work at the intersection of building and solving. My technical foundation is in software engineering: backend systems, 
-                data pipelines, machine learning. But my graduate work in Information Systems has trained me to think beyond just implementation.
+                Moving data from one place to another is the easy part. What I care about is
+                everything around it: designing schemas that won't crack later, catching bad
+                data before it spreads, and knowing when something breaks at 3am.
               </p>
               <p className="about-paragraph">
-                The questions I ask are: How does this system support a business goal? What decisions does this data enable? Who needs to 
-                understand this, and in what format?
+                Before I build anything, I want to know who's going to use it and what happens
+                to their work if it goes wrong. That usually shapes the whole design.
               </p>
             </div>
 
             <div className="about-content-section">
               <h3 className="about-subheading">What I've Built</h3>
               <p className="about-paragraph">
-                I've built production systems that process millions of records daily, designed dashboards that changed how product teams 
-                prioritize features, and automated workflows that eliminated manual processes. I've worked with engineers who think in 
-                system architecture and stakeholders who think in quarterly revenue, and I've learned to speak both languages fluently.
+                Most of my work has been the plumbing behind analytics: pipelines that move data
+                every day, models that make slow queries fast, and checks that quietly catch
+                problems before anyone notices. A lot of it has been on AWS, with Python and SQL
+                doing the heavy lifting and tools like Airflow and dbt keeping things in order.
               </p>
             </div>
 
             <div className="about-content-section">
               <h3 className="about-subheading">What Drives Me</h3>
               <p className="about-paragraph">
-                What excites me isn't just technical elegance. It's leverage. Building solutions that create outsized impact. Systems that 
-                don't just work, but enable faster, smarter decisions. Data that doesn't just exist in dashboards, but changes how 
-                organizations operate.
+                The best data infrastructure is the kind nobody thinks about. It just runs, the
+                numbers are right, and people get on with their work. I like building things that
+                fade into the background like that, where the reward is that no one has to worry.
               </p>
             </div>
 
             <div className="about-content-section">
               <h3 className="about-subheading">What's Next</h3>
               <p className="about-paragraph">
-                I'm exploring full-time opportunities starting mid-2026 where I can apply both technical depth and strategic thinking. I'm interested in 
-                roles in software engineering, data and analytics engineering, AI/ML, or business-facing technical consulting.
+                I'm looking for a data engineering team that takes its infrastructure seriously,
+                somewhere I can own real pipelines and keep growing as an engineer.
               </p>
             </div>
           </div>
