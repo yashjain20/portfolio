@@ -3,7 +3,7 @@
 }
 
 .experience-list {
-  max-width: 1200px;
+  max-width: var(--text-block-max);
   margin: 0 auto;
   display: flex;
   flex-direction: column;

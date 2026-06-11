@@ -82,6 +82,13 @@ const About = () => {
               >
                 See My Work
               </a>
+              <a
+                href="/resume/Yash_Jain_Resume.pdf"
+                download="Yash_Jain_Resume.pdf"
+                className="btn btn-secondary"
+              >
+                Download Resume
+              </a>
             </div>
           </div>
           <div className="about-image">

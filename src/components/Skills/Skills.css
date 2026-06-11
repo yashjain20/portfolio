@@ -3,18 +3,18 @@
 }
 
 .skills-intro {
-  font-size: 1.125rem;
+  font-size: clamp(1rem, 0.95rem + 0.3vw, 1.1875rem);
   color: var(--text-light);
   line-height: 1.9;
   margin-bottom: 3rem;
-  max-width: 1200px;
+  max-width: var(--prose-max);
   margin-left: auto;
   margin-right: auto;
   text-align: center;
 }
 
 .skills-sections {
-  max-width: 1200px;
+  max-width: var(--text-block-max);
   margin: 0 auto;
   display: flex;
   flex-direction: column;
